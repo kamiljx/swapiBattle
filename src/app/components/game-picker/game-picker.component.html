@@ -1,13 +1,14 @@
 <ul>
   <li>
-    <button (click)="onPlay('people')" [ngClass]="{active: this.battleService.mode() === 'people'}" mat-button
-            color="accent">
+    <button mat-button (click)="onPlay('people')" [ngClass]="{active: this.battleService.mode() === 'people'}"
+            color="accent" id="people">
       <mat-icon>people</mat-icon>
       People
     </button>
   </li>
   <li>
-    <button (click)="onPlay('starships')" mat-button [ngClass]="{active: this.battleService.mode() === 'starships'}">
+    <button mat-button (click)="onPlay('starships')" [ngClass]="{active: this.battleService.mode() === 'starships'}"
+            id="starship">
       <mat-icon>rocket_launch</mat-icon>
       Starships
     </button>

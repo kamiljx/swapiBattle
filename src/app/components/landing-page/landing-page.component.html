@@ -3,7 +3,7 @@
   <app-game-picker/>
   @defer (when battleService.mode()) {
     <app-counter/>
-    <button mat-raised-button color="primary" (click)="refresh()">Play again!</button>
+    <button mat-raised-button color="primary" id="play-again" (click)="refresh()">Play again!</button>
   }
   <div class="content">
     <div class="row">
