@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, effect, inject} from '@angular/core';
 import {InfoCardComponent} from "@components/info-card/info-card.component";
 import {HeaderComponent} from "@components/header/header.component";
 import {GamePickerComponent} from "@components/game-picker/game-picker.component";
@@ -23,6 +23,12 @@ import {MatButton} from "@angular/material/button";
 })
 export class LandingPageComponent {
   public battleService: BattleService = inject(BattleService);
+  public canGetData: boolean = true;
+  constructor() {
+    effect(() => {
+      this.canGetData = this.battleService.canGetData();
+    });
+  }
   public refresh() {
     this.battleService.getBattle();
   }
