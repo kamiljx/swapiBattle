@@ -15,6 +15,7 @@ export class InfoCardComponent implements OnInit, OnDestroy {
   @Input({required: true}) cardIndex!: number;
   public card: any = {};
   public mode: string = '';
+  public isWinner!: boolean;
   #battleService: BattleService = inject(BattleService);
 
   #injector: Injector = inject(Injector);
@@ -26,12 +27,10 @@ export class InfoCardComponent implements OnInit, OnDestroy {
     effect(() => {
       this.card = this.#battleService.cards()[this.cardIndex];
       this.mode = this.#battleService.mode();
+      this.isWinner = this.#battleService.winnerIndex() === this.cardIndex;
     }, {injector: this.#injector});
   }
 
-  public redirect(): void {
-
-  }
 
   ngOnDestroy() {
     this.#battleService.cards.set({});

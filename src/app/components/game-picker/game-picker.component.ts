@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, effect, inject} from '@angular/core';
 import {BattleService} from "../../services/battle.service";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
@@ -16,7 +16,15 @@ import {NgClass} from "@angular/common";
   styleUrl: './game-picker.component.scss'
 })
 export class GamePickerComponent {
+  public canGetData: boolean = true;
   battleService: BattleService = inject(BattleService);
+
+  constructor() {
+    effect(() => {
+      this.canGetData = this.battleService.canGetData();
+    });
+  }
+
   public onPlay(starships: 'people' | 'starships'): void {
     this.battleService.mode.set(starships);
   }
