@@ -26,7 +26,6 @@ export class InfoCardComponent implements OnInit, OnDestroy {
     effect(() => {
       this.card = this.#battleService.cards()[this.cardIndex];
       this.mode = this.#battleService.mode();
-      console.log(this.card);
     }, {injector: this.#injector});
   }
 

@@ -42,6 +42,6 @@
 
 <ng-template #search>
   <mat-card-actions>
-    <a mat-button [href]="'https://www.google.com/search?q=' + card?.name " target="_blank">Google that!</a>
+    <a mat-button [href]="'https://www.google.com/search?q=' + card?.name " target="_blank" [id]="'google-redirect-' + cardIndex">Google that!</a>
   </mat-card-actions>
 </ng-template>
