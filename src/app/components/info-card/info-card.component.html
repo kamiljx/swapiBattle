@@ -1,0 +1,47 @@
+@switch (mode) {
+  @case ('people') {
+    <ng-container [ngTemplateOutlet]="people"></ng-container>
+  }
+  @case ('starships') {
+    <ng-container [ngTemplateOutlet]="starships"></ng-container>
+  }
+}
+
+  <ng-template #people>
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{card?.name}}</mat-card-title>
+        <mat-card-subtitle>mass: {{ card?.mass }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>birth year: {{card?.birth_year}}</p>
+        <p>height: {{ card?.height }}</p>
+        <p>hair color: {{card?.hair_color}}</p>
+        <p>skin color: {{card?.skin_color}}</p>
+      </mat-card-content>
+      <ng-container [ngTemplateOutlet]="search"></ng-container>
+    </mat-card>
+  </ng-template>
+
+  <ng-template #starships>
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{card?.name}}</mat-card-title>
+        <mat-card-subtitle>crew: {{ card?.crew }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Length: {{ card?.length }}</p>
+        <p>passengers: {{card?.passengers}}</p>
+        <p>max atmosphering speed: {{card?.max_atmosphering_speed}}</p>
+        <p>cargo capacity: {{card?.cargo_capacity}}</p>
+      </mat-card-content>
+      <ng-container [ngTemplateOutlet]="search"></ng-container>
+    </mat-card>
+  </ng-template>
+
+
+<ng-template #search>
+  <mat-card-actions>
+    <a mat-button [href]="'https://www.google.com/search?q=' + card?.name " target="_blank">Google that!</a>
+  </mat-card-actions>
+</ng-template>

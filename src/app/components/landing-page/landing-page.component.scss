@@ -1,0 +1,22 @@
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+
+  .card-p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+
+}
+
+button {
+  align-self: center;
+  margin: 24px;
+}
+
