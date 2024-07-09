@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <app-header/>
+  <app-game-picker/>
+  @defer (when battleService.mode()) {
+    <app-counter/>
+    <button mat-raised-button color="primary" (click)="refresh()">Play again!</button>
+  }
+  <div class="content">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-12 card-p">
+        <app-info-card [cardIndex]="0"/>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12 card-p">
+        <app-info-card [cardIndex]="1"/>
+      </div>
+    </div>
+  </div>
+</div>

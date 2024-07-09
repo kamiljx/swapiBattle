@@ -1,0 +1,21 @@
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+
+  li {
+    list-style: none;
+
+    button {
+      font-size: 24px;
+
+      &.active {
+        text-shadow: 1px 1px #6052fa;
+      }
+
+      &:hover {
+        color: #f00;
+      }
+    }
+  }
+}
